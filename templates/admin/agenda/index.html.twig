@@ -1,0 +1,110 @@
+{% extends 'admin/index.html.twig' %}
+
+
+	{% block content_header %}
+	<h1 class="">Agenda</h1>
+	{% endblock %}
+
+	{% block content %}
+
+	<ul class="nav nav-tabs" id="myTab" role="tablist">
+		<li class="nav-item">
+			<a class="nav-link active" id="home-tab" data-toggle="tab" href="#fiche" role="tab" aria-controls="fiche"
+					        aria-selected="true">Fiche</a>
+	    </li>
+		<li class="nav-item">
+		     <a class="nav-link" id="profile-tab" data-toggle="tab" href="#dates" role="tab" aria-controls="dates"
+			        aria-selected="false">Dates</a>
+		</li>
+		<li class="nav-item">
+		     <a class="nav-link" id="contact-tab" data-toggle="tab" href="#filtres" role="tab" aria-controls="filtres"
+									       aria-selected="false">Filtres</a>
+		</li>
+		<li class="nav-item">
+		     <a class="nav-link" id="contact-tab" data-toggle="tab" href="#adherent" role="tab" aria-controls="adherent"
+																						 aria-selected="false">Adhérent</a>
+		</li>
+		<li class="nav-item">
+		     <a class="nav-link" id="contact-tab" data-toggle="tab" href="#informations" role="tab" aria-controls="informations"
+									       aria-selected="false">Informations</a>
+		</li>
+		<li class="nav-item">
+		     <a class="nav-link" id="contact-tab" data-toggle="tab" href="#maj" role="tab" aria-controls="maj"
+									       aria-selected="false">Mise en avant</a>
+		</li>
+	</ul>
+
+
+	{{ form_start(form) }}
+	<div class="form-error">
+		{{ form_errors(form) }}
+	</div>
+
+	<div class="tab-content content">
+		<div class="tab-pane fade show active" id="fiche" role="tabpanel" aria-labelledby="fiche-tab">
+			{{ form_row(form.titre) }}
+			{{ form_row(form.resume) }}
+			{{ form_row(form.description) }}
+			{{ form_row(form.video) }}
+			{{ form_row(form.map) }}
+			{{ form_row(form.lat) }}
+			{{ form_row(form.lng) }}
+			{{ form_row(form.type_resa) }}
+			{{ form_row(form.reservation) }}
+		</div>
+		<div class="tab-pane fade " id="dates" role="tabpanel" aria-labelledby="dates-tab">
+			{{ form_row(form.dates) }}
+		</div>
+		<div class="tab-pane fade " id="filtres" role="tabpanel" aria-labelledby="filtres-tab">
+		</div>
+		<div class="tab-pane fade " id="adherent" role="tabpanel" aria-labelledby="adherent-tab">
+			{{ form_row(form.lieu) }}
+			{{ form_row(form.adresse) }}
+			{{ form_row(form.telephone) }}
+			{{ form_row(form.email) }}
+			{{ form_row(form.url) }}
+
+		</div>
+		<div class="tab-pane fade " id="informations" role="tabpanel" aria-labelledby="filtres-tab">
+			{{ form_row(form.horaires) }}
+			{{ form_row(form.age_min) }}
+			{{ form_row(form.age_max) }}
+		</div>
+		<div class="tab-pane fade " id="maj" role="tabpanel" aria-labelledby="maj-tab">
+			<div class="form-group">
+				<label for="agenda_maj_titre">Titre</label>
+				<input type="text" id="agenda_maj_titre" name="agenda_maj_titre" value="" class="form-control" />
+			</div>
+			<div class="form-group">
+				<label for="agenda_maj_description">Description</label>
+				<textarea id="agenda_maj_description" name="agenda_maj_description" class="form-control" /></textarea>
+			</div>
+			<div class="form-group">
+				<label for="agenda_maj_type">Type</label>
+				<div class="form-check form-check">
+					<input type="checkbox" id="maj1" name="agenda_maj_type[]" value="0" class="form-check-input" />
+					<label class="form-chack-label" for="maj1">Diaporama</label>
+				</div>
+
+				<div class="form-check form-check">
+					<input type="checkbox" id="maj2" name="agenda_maj_type[]" value="1" class="form-check-input" />
+					<label class="form-chack-label" for="maj2">Bloc d'accueil</label>
+				</div>
+
+				<div class="form-check form-check">
+					<input type="checkbox" id="maj3" name="agenda_maj_type[]" value="2" class="form-check-input" />
+					<label class="form-chack-label" for="maj3">Newsletter</label>
+				</div>
+				<div class="form-check form-check">
+					<input type="checkbox" id="maj4" name="agenda_maj_type[]" value="3" class="form-check-input" />
+					<label class="form-chack-label" for="maj4">Réseaux sociaux</label>
+				</div>
+
+			</div>
+
+		</div>
+		{{ form_end(form) }}
+
+	</div>
+
+{% endblock %}

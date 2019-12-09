@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Welcome!{% endblock %}</title>
+
+
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+		<link rel="stylesheet" href="{{ asset('/bundles/admin/css/font-awesome.min.css') }}" />
+		<link rel="stylesheet" href="{{ asset('/bundles/admin/css/AdminLTE.min.css') }}" />
+		<link rel="stylesheet" href="{{ asset('/bundles/admin/css/skin-black.min.css') }}" />
+        {% block stylesheets %}
+		<style>
+body.open .content-wrapper {
+	transition: margin-left .3s cubic-bezier(0.32,1.25,0.375,1.15);
+	margin-left: 230px;
+}
+		body.open .main-sidebar {
+			transition: transform .3s cubic-bezier(0.32,1.25,0.375,1.15);
+			transform: translate(0,0);
+		}
+
+
+		</style>
+
+		{% endblock %}
+    </head>
+    <body class="skin-black">
+	<div class="wrapper">
+		<header class="main-header">
+			<a class="logo"></a>
+			<nav class="navbar navbar-static-top" role="navigation">
+				<a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+					                <span class="sr-only">Réduire la barre de navigation</span>
+									              </a>
+			</nav>
+		</header>
+			<aside class="main-sidebar ">
+				<section class="sidebar">
+			
+					<ul class="sidebar-menu">
+						<li class="nav-item">
+							<a href="/{{ dep }}/admin/agenda">
+								<i class="fa fa-dashboard"></i>
+								Dashboard
+							</a>
+						</li>
+						<li class="nav-item"><a href="/{{ dep }}/admin/agenda"><i class="fa fa-calendar"></i>Agendas</a></li>
+						<li class="nav-item"><a href="/admin/agenda"><i class="fa fa-leaf"></i>Activités</a></li>
+					</ul>
+				
+				</section>
+			</aside>
+
+			<div class="content-wrapper">
+				<section class="content-header">{% block content_header %}{% endblock %}</section>
+				<section class="content">{% block content %}{% endblock %}</section>
+			</div>
+
+
+		<script
+			  src="https://code.jquery.com/jquery-3.4.1.min.js"
+			  			  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+						  			  crossorigin="anonymous"></script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+		<script>
+$(".sidebar-toggle").click(function() {
+	if($("body").hasClass("open")) $("body").removeClass("open");else $("body").addClass("open");
+});
+		</script>
+        {% block javascripts %}
+		{% endblock %}
+	</div>
+    </body>
+</html>
